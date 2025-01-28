@@ -12,7 +12,6 @@ public class QrGenerator
         var qrCodeData = qrGenerator.CreateQrCode(qrContent, QRCodeGenerator.ECCLevel.Q);
         var qrCode = new BitmapByteQRCode(qrCodeData);
         byte[] qrCodeImage = qrCode.GetGraphic(20); // Байты изображения для фронтенда
-        File.WriteAllBytes("qrCode.png", qrCodeImage);
         return qrCodeImage;
     }
 }

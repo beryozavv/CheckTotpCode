@@ -1,19 +1,9 @@
-﻿using OtpNet;
-
-// See https://aka.ms/new-console-template for more information
+﻿using CheckTotpCode;
+using OtpNet;
 
 Console.WriteLine("Hello, World!");
 
-//new SecretKeyGenerator().GenerateSecretKey();
-
-var secretKey = "W5LIGQH5QTCK2T7KTX3VWNCOKXLAOUIC";
-var app = nameof(CheckTotpCode);
-var user = "bvv";
-
-// var qrGenerator = new QrGenerator();
-// qrGenerator.GenerateQr(app, user, secretKey);
-
-var keyBytes = Base32Encoding.ToBytes(secretKey);
+var keyBytes = Base32Encoding.ToBytes(TestConstants.SecretKey);
 var totp = new Totp(keyBytes);
 while (true)
 {
